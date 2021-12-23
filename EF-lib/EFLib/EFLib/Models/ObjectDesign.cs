@@ -9,8 +9,9 @@ namespace EFLib.Models
     class ObjectDesign:BaseClass
     {
         [Key]
+        [Required]
         public string Code { get; set; }
-        public Catalog Performer { get; set; }
+        public Performer Performer { get; set; }
         public Guid ParentId { get; set; }
         public Guid ProjectId { get; set; }
         public Project Project { get; set; }

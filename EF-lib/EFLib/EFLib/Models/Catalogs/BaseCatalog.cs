@@ -4,8 +4,11 @@ using System.Text;
 
 namespace EFLib.Models.Catalogs
 {
-    class Catalog:BaseClass
+    class BaseCatalog:BaseClass
     {
         public string FullName { get; set; }
     }
+    class Performer : BaseCatalog { }
+    class Mark : BaseCatalog { }
+    class TypeDoc : BaseCatalog { }
 }

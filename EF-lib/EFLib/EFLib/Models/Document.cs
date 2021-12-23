@@ -1,13 +1,16 @@
 ﻿using EFLib.Models.Catalogs;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace EFLib.Models
 {
     class Document:BaseClass
     {
-        public Catalog TypeDoc { get; set; }
+        [Required]
+        public TypeDoc TypeDoc { get; set; }
+        [Required]
         public int Number { get; set; }
 
         public Guid DocumentPackId { get; set; }

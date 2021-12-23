@@ -11,8 +11,10 @@ namespace EFLib.Models
     class Project: BaseClass
     {
         [Key]
+        [Required]
        public string Сipher { get; set; }
-       public Catalog Performer { get; set; }
+        [Required]
+       public BaseCatalog Performer { get; set; }
 
         public virtual ICollection<ObjectDesign> Objects { get; set; }
     }

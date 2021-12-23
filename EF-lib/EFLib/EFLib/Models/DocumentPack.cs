@@ -7,13 +7,14 @@ using System.Text;
 
 namespace EFLib.Models
 {
-    class DocumentPack:BaseClass
+    class DocumentPack
     {
+        [Required]
         public  int Number { get; set; }
-        public Catalog Mark { get; set; } 
-        [Key]
-        [ForeignKey("ObjectDesign")]
-         public new Guid Id { get; set; }
+        [Required]
+        public Mark Mark { get; set; } 
+
+         public  Guid ObjectDesignId { get; set; }
         public ObjectDesign Object { get; set; }
 
         public ICollection<Document> Documents { get; set; }
