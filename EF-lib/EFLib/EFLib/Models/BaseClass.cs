@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EFLib.Models
 {
-    abstract class BaseClass
+    public abstract class BaseClass
     {
         //используется аннотация данных, также для этого может использоваться FluentAPI, но используется аннотация для более естественного описания полей (нет необходимости смотерть в OnModelCreating чтобы видеть какие св-ва заданы)
         [Key]

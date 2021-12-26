@@ -7,7 +7,7 @@ using System.Text;
 
 namespace EFLib.Models
 {
-    class DocumentPack
+    public class DocumentPack
     {
         [Required]
         public  int Number { get; set; }

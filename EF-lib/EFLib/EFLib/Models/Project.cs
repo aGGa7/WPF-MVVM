@@ -8,7 +8,7 @@ using System.Text;
 namespace EFLib.Models
 {
     [Table("Project")]
-    class Project: BaseClass
+    public class Project: BaseClass
     {
         [Key]
         [Required]

@@ -7,6 +7,20 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="6*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+            <ToolBar Height="34" Width="200" >
+                <Button Content="Add&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" Width="50"/>
+                <Button Content="Delete&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" BorderBrush="Black"/>
+            </ToolBar>
+            <ListBox Height="350" Width="200"/>
+
+
+        </StackPanel>
+
 
     </Grid>
 </Window>

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EFLib.Models
 {
-    class Document:BaseClass
+    public class Document:BaseClass
     {
         [Required]
         public TypeDoc TypeDoc { get; set; }

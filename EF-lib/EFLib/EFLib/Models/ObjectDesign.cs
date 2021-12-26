@@ -6,7 +6,7 @@ using System.Text;
 
 namespace EFLib.Models
 {
-    class ObjectDesign:BaseClass
+    public class ObjectDesign:BaseClass
     {
         [Key]
         [Required]
