@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using EFLib;
+using EFLib.Models;
+using EFLib.CRUD;
 
 namespace WPF_MVVM
 {
@@ -20,9 +24,18 @@ namespace WPF_MVVM
     /// </summary>
     public partial class MainWindow : Window
     {
+        string connectionString;
         public MainWindow()
         {
             InitializeComponent();
+            connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+            MainCRUD<Project> CRUD = new MainCRUD<Project>(connectionString);
+            MainRepository Repo = new MainRepository(connectionString);
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

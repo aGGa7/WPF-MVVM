@@ -16,7 +16,7 @@
                 <Button Content="Add&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" Width="50"/>
                 <Button Content="Delete&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" BorderBrush="Black"/>
             </ToolBar>
-            <ListBox Height="350" Width="200"/>
+            <ListBox Height="350" Width="200" x:Name="ListObj"/>
 
 
         </StackPanel>

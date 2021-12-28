@@ -9,14 +9,18 @@ using System.Data.Entity;
 
 namespace EFLib.CRUD
 {
-    class MainRepositoryGeneric<T> : IDisposable, IRepo<T> where T: BaseClass, new()
+    public class MainCRUD<T> : IDisposable, IRepo<T> where T: BaseClass, new()
     {
         private MainDBContextGeneric<T> context { get; set; }
         private string connection;
-        public MainRepositoryGeneric(string conn)
+        public MainCRUD(string conn)
         {
             connection = conn;
             context = new MainDBContextGeneric<T>(connection);
+        }
+        public MainCRUD(MainDBContextGeneric<T> dbctx)
+        {
+            context = dbctx;
         }
         public int Add(T entity)
         {
@@ -98,36 +102,5 @@ namespace EFLib.CRUD
                 throw;
             }
         }
-        ////отключение ленивой загрузки через context.Configuration.LazyLoadingEnabled = false; не используется т.к. для малых коллекций нет необходимости. Если потребуется включить то данный класс придется полностью переделывать
-        //public IQueryable<T> ListRepository => context.Repository;
-
-        //public void CreateOrUpdateEntity (T entity) 
-        //{
-        //    try
-        //    {
-        //        context.Repository.AddOrUpdate(p => new { p.Id }, entity);
-        //        context.SaveChanges();
-        //    }
-        //    catch
-        //    {
-        //        throw;
-        //    }
-        //}
-        //public void DeleteEntity(Guid id)
-        //{
-        //    try
-        //    {
-        //        T dbEntry = context.Repository.FirstOrDefault(p => p.Id == id);
-        //        if (dbEntry != null)
-        //        {
-        //            context.Repository.Remove(dbEntry);
-        //            context.SaveChanges();
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        throw;
-        //    }
-        //}
     }
 }

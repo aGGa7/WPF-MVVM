@@ -7,12 +7,14 @@ using System;
 
 namespace EFLib.CRUD
 {
-    class ProjectRepository
+    public class MainRepository
     {
         private MainDBContextcs context = new MainDBContextcs();
-        public ProjectRepository (MainDBContextcs ctx)
+        string connection;
+        public MainRepository (string conn)
         {
-            context = ctx;
+            connection = conn;
+            context = new MainDBContextcs(connection);
         }
         public IQueryable<Project> Projects => context.Projects;
         public void SaveProject (Project prj)

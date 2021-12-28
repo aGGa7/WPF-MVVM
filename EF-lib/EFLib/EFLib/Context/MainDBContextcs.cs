@@ -18,6 +18,13 @@ namespace EFLib.Context
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MainDBContextcs>());
         }
 
+        public MainDBContextcs(string connection) : base(connection)
+        {
+            // Указывает EF, что если модель изменилась,
+            // нужно воссоздать базу данных с новой структурой
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MainDBContextcs>());
+        }
+
         public DbSet<Project> Projects { get; set; }
         public DbSet<ObjectDesign> Objects { get; set; }
         public DbSet<DocumentPack> DocumentPacks { get; set; }
