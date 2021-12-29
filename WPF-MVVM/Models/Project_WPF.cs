@@ -1,10 +1,10 @@
-﻿using System.ComponentModel;
+﻿using EFLib.Models;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using EFLib.Models;
 
-namespace EFLib.Models
+namespace WPF_MVVM.Models
 {
-    public partial class Project : BaseClass, INotifyPropertyChanged
+    class Project_WPF:Project
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")

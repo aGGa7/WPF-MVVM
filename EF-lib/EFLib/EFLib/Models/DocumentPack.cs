@@ -12,7 +12,8 @@ namespace EFLib.Models
         [Required]
         public  int Number { get; set; }
         [Required]
-        public Mark Mark { get; set; } 
+        public Mark Mark { get; set; }
+        public string MarkName { get => Mark.Name; set => _ = value; }
 
          public  Guid ObjectDesignId { get; set; }
         public ObjectDesign Object { get; set; }

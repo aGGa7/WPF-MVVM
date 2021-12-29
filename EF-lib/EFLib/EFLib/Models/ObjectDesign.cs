@@ -8,13 +8,13 @@ namespace EFLib.Models
 {
     public class ObjectDesign:BaseClass
     {
-        [Key]
         [Required]
         public string Code { get; set; }
         public Performer Performer { get; set; }
         public Guid ParentId { get; set; }
         public Guid ProjectId { get; set; }
         public Project Project { get; set; }
+        [Required]
         public DocumentPack DocumentPack { get; set; }
     }
 }

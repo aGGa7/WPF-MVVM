@@ -10,12 +10,19 @@ namespace EFLib.Models
     [Table("Project")]
     public partial class Project: BaseClass
     {
-        [Key]
         [Required]
        public string Сipher { get; set; }
         [Required]
        public BaseCatalog Performer { get; set; }
 
         public virtual ICollection<ObjectDesign> Objects { get; set; }
+
+        public Project(int num)
+        {
+            Name = "Новый проект_"+ num;
+            DateCreate = new DateTime().ToUniversalTime();
+            Сipher = "Шифр_" + num;
+            
+        }
     }
 }

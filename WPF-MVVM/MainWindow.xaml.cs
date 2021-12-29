@@ -30,7 +30,8 @@ namespace WPF_MVVM
             InitializeComponent();
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             MainCRUD<Project> CRUD = new MainCRUD<Project>(connectionString);
-            MainRepository Repo = new MainRepository(connectionString);
+            DataContext = new ApplicationViewModel(CRUD);
+            // MainRepository Repo = new MainRepository(connectionString);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

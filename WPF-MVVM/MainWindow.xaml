@@ -6,19 +6,46 @@
         xmlns:local="clr-namespace:WPF_MVVM"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Margin="0,0,0,2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="6*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-            <ToolBar Height="34" Width="200" >
-                <Button Content="Add&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" BorderBrush="Black" Width="50"/>
-                <Button Content="Delete&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" BorderBrush="Black"/>
-            </ToolBar>
-            <ListBox Height="350" Width="200" x:Name="ListObj"/>
-
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0.1*" />
+        </Grid.RowDefinitions>
+        <ListBox ItemsSource="{Binding Projects}"
+                 SelectedItem="{Binding SelectedProject}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock FontSize="16" Text="{Binding Path=Name}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Button Command="{Binding AddCommand}" Width="57">+</Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1" DataContext="{Binding SelectedProject}">
+            <TextBlock Text="Выбранный элемент"  />
+            <TextBlock Text="Шифр проекта" />
+            <TextBox Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Код объекта" />
+            <TextBox Text="{Binding Company, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Марка" />
+            <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Номер" />
+            <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Полный шифр комплекта" />
+            <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Исполнитель" />
+            <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Дата создания" />
+            <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBlock Text="Дата изменения" />
+            <TextBox Text="{Binding Price, UpdateSourceTrigger=PropertyChanged}" />
         </StackPanel>
 
 
