@@ -16,6 +16,110 @@ namespace EFLib.Context
             // Указывает EF, что если модель изменилась,
             // нужно воссоздать базу данных с новой структурой
             Database.SetInitializer(new DropCreateDatabaseIfModelChanges<MainDBContextGeneric<T>>());
+            //заполнение справочников начальными данными если они отсутсвуют в бд
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    -+6+56+
+            Database.SetInitializer(new DropCreateDatabaseAlways<MainDBContextcs>());
         }
         public DbSet<T> Repository { get; set; }
 
@@ -23,13 +127,16 @@ namespace EFLib.Context
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Project>().Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<Project>().HasRequired(p => p.Performer).WithOptional(p => p.Project);
             modelBuilder.Entity<ObjectDesign>().Property(o => o.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             modelBuilder.Entity<Document>().Property(d => d.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.ComplexType<Performer>();
-            modelBuilder.ComplexType<Mark>();
-            modelBuilder.ComplexType<TypeDoc>();
+            modelBuilder.Entity<Document>().HasRequired(d => d.TypeDoc).WithOptional(t => t.Document);
+            //modelBuilder.ComplexType<Performer>();
+            //modelBuilder.ComplexType<Mark>();
+            //modelBuilder.ComplexType<TypeDoc>();
             //используется составной ключ 
             modelBuilder.Entity<DocumentPack>().HasKey(key => new { key.MarkName, key.Number }).Property(dp => dp.Number).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<DocumentPack>().HasRequired(d => d.Mark).WithOptional(m => m.DocumentPack);
         }
     }
 }

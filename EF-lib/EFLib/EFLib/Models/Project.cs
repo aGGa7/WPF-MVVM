@@ -13,10 +13,15 @@ namespace EFLib.Models
         [Required]
        public string Сipher { get; set; }
         [Required]
-       public BaseCatalog Performer { get; set; }
+       public Performer Performer { get; set; }
 
         public virtual ICollection<ObjectDesign> Objects { get; set; }
 
+        public Project ()
+        {
+            Сipher = string.Empty;
+            Performer = new Performer();
+        }
         public Project(int num)
         {
             Name = "Новый проект_"+ num;

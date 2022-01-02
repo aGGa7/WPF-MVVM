@@ -8,7 +8,16 @@ namespace EFLib.Models.Catalogs
     {
         public string FullName { get; set; }
     }
-    public class Performer : BaseCatalog { }
-    public class Mark : BaseCatalog { }
-    public class TypeDoc : BaseCatalog { }
+    public class Performer : BaseCatalog
+    {
+        public Project Project { get; set; }
+    }
+    public class Mark : BaseCatalog 
+    {
+        public DocumentPack DocumentPack { get; set; }
+    }
+    public class TypeDoc : BaseCatalog 
+    {
+        public Document Document { get; set; }
+    }
 }

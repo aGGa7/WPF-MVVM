@@ -17,6 +17,7 @@ using EFLib;
 using EFLib.Models;
 using EFLib.CRUD;
 
+
 namespace WPF_MVVM
 {
     /// <summary>
@@ -31,7 +32,6 @@ namespace WPF_MVVM
             connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             MainCRUD<Project> CRUD = new MainCRUD<Project>(connectionString);
             DataContext = new ApplicationViewModel(CRUD);
-            // MainRepository Repo = new MainRepository(connectionString);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
